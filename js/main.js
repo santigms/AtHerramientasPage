@@ -1,34 +1,25 @@
 /* ==========================================================================
-   FERRETERÍA EL TORNILLO — main.js
+   AT HERRAMIENTAS — main.js
    Vanilla JS · IntersectionObserver · Sin librerías
    ========================================================================== */
 
 // ─── CONFIGURACIÓN EDITABLE ─────────────────────────────────────────────────
-// Modificá estos datos para adaptar la landing a otro negocio.
-
 const CONFIG = {
-  whatsapp: '5491100000000', // Número de WhatsApp sin + ni espacios
-  whatsappMsg: 'Hola! Vi su página web y quiero hacer una consulta.',
-  businessName: 'Ferretería El Tornillo',
+  // WhatsApp: código de país + código de área + número sin espacios ni guiones
+  whatsapp: '5491122830029',
+  whatsappMsg: 'Hola AT Herramientas! Quiero hacer una consulta sobre un producto.',
+  businessName: 'AT Herramientas',
 
-  // Horarios: cada día tiene un array de rangos { open, close } en formato 24h.
+  // Horarios de atención para pedidos y consultas (24h)
   // Domingo = 0, Lunes = 1 ... Sábado = 6.
   schedule: {
-    0: [],                                         // Domingo: cerrado
+    0: [],                                                                       // Domingo: cerrado
     1: [{ open: '08:00', close: '13:00' }, { open: '15:00', close: '19:30' }], // Lunes
     2: [{ open: '08:00', close: '13:00' }, { open: '15:00', close: '19:30' }], // Martes
     3: [{ open: '08:00', close: '13:00' }, { open: '15:00', close: '19:30' }], // Miércoles
     4: [{ open: '08:00', close: '13:00' }, { open: '15:00', close: '19:30' }], // Jueves
     5: [{ open: '08:00', close: '13:00' }, { open: '15:00', close: '19:30' }], // Viernes
-    6: [{ open: '08:00', close: '13:00' }],        // Sábado
-  },
-
-  // Valores finales para los contadores animados
-  counters: {
-    years: 15,
-    products: 5000,
-    clients: 3000,
-    brands: 120,
+    6: [{ open: '08:00', close: '13:00' }],                                      // Sábado
   },
 };
 
@@ -96,7 +87,6 @@ function initHeaderScroll() {
     { threshold: 0, rootMargin: '-64px 0px 0px 0px' }
   );
 
-  // Observamos un elemento "sentinela" al inicio del body
   const sentinel = document.createElement('div');
   sentinel.style.height = '1px';
   sentinel.setAttribute('aria-hidden', 'true');
@@ -108,7 +98,6 @@ function initHeaderScroll() {
 
 function initScrollReveal() {
   if (prefersReducedMotion()) {
-    // Mostrar todo sin animación
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
     return;
   }
@@ -128,58 +117,7 @@ function initScrollReveal() {
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
 
-// ─── 4. CONTADORES ANIMADOS ─────────────────────────────────────────────────
-
-function animateCounter(el, target, duration = 2000) {
-  if (prefersReducedMotion()) {
-    el.textContent = target.toLocaleString('es-AR');
-    return;
-  }
-
-  const start = 0;
-  const startTime = performance.now();
-
-  function update(currentTime) {
-    const elapsed = currentTime - startTime;
-    const progress = Math.min(elapsed / duration, 1);
-    // ease-out quad
-    const eased = 1 - (1 - progress) * (1 - progress);
-    const value = Math.floor(eased * (target - start) + start);
-    el.textContent = value.toLocaleString('es-AR');
-
-    if (progress < 1) {
-      requestAnimationFrame(update);
-    } else {
-      el.textContent = target.toLocaleString('es-AR');
-    }
-  }
-
-  requestAnimationFrame(update);
-}
-
-function initCounters() {
-  const counters = document.querySelectorAll('[data-counter]');
-  if (!counters.length) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const key = el.dataset.counter;
-          const target = CONFIG.counters[key] || 0;
-          animateCounter(el, target);
-          observer.unobserve(el);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-
-  counters.forEach(el => observer.observe(el));
-}
-
-// ─── 5. CARTEL ABIERTO / CERRADO ────────────────────────────────────────────
+// ─── 4. ESTADO DE ATENCIÓN (ABIERTO / FUERA DE HORARIO) ──────────────────────
 
 function initOpenClosedStatus() {
   const statusEl = document.querySelector('.schedule__status');
@@ -200,7 +138,7 @@ function initOpenClosedStatus() {
     statusEl.className = 'schedule__status ' + (isOpen ? 'schedule__status--open' : 'schedule__status--closed');
     statusEl.innerHTML = `
       <span class="schedule__dot"></span>
-      ${isOpen ? 'Abierto ahora' : 'Cerrado'}
+      ${isOpen ? 'Atendiendo consultas' : 'Fuera de horario'}
     `;
   }
 
@@ -208,7 +146,7 @@ function initOpenClosedStatus() {
   // Actualizar cada minuto
   setInterval(updateStatus, 60000);
 
-  // Marcar el día actual en la tabla de horarios
+  // Resaltar día actual en la tabla
   const rows = document.querySelectorAll('.schedule__table tr[data-day]');
   const today = new Date().getDay();
   rows.forEach(row => {
@@ -218,7 +156,7 @@ function initOpenClosedStatus() {
   });
 }
 
-// ─── 6. LIGHTBOX DE GALERÍA ─────────────────────────────────────────────────
+// ─── 5. LIGHTBOX DE GALERÍA DE PRODUCTOS ────────────────────────────────────
 
 function initLightbox() {
   const lightbox = document.querySelector('.lightbox');
@@ -232,17 +170,18 @@ function initLightbox() {
 
   let currentIndex = 0;
 
-  // Recopilar las URLs de las imágenes
-  const images = Array.from(galleryItems).map(item => {
-    const img = item.querySelector('img');
-    return img ? img.src : '';
-  }).filter(Boolean);
+  function getImages() {
+    return Array.from(galleryItems).map(item => {
+      const img = item.querySelector('img');
+      return img ? img.src : '';
+    }).filter(Boolean);
+  }
 
   function openLightbox(index) {
+    const images = getImages();
+    if (!images.length) return;
     currentIndex = index;
-    if (images[currentIndex]) {
-      lightboxImg.src = images[currentIndex];
-    }
+    lightboxImg.src = images[currentIndex];
     lightbox.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
@@ -253,10 +192,10 @@ function initLightbox() {
   }
 
   function navigate(direction) {
+    const images = getImages();
+    if (!images.length) return;
     currentIndex = (currentIndex + direction + images.length) % images.length;
-    if (images[currentIndex]) {
-      lightboxImg.src = images[currentIndex];
-    }
+    lightboxImg.src = images[currentIndex];
   }
 
   galleryItems.forEach((item, i) => {
@@ -279,7 +218,7 @@ function initLightbox() {
   });
 }
 
-// ─── 7. WHATSAPP LINKS ─────────────────────────────────────────────────────
+// ─── 6. WHATSAPP LINKS ─────────────────────────────────────────────────────
 
 function initWhatsAppLinks() {
   const waLinks = document.querySelectorAll('[data-whatsapp]');
@@ -290,8 +229,7 @@ function initWhatsAppLinks() {
   });
 }
 
-// ─── 8. SCROLL SUAVE PARA LINKS INTERNOS ────────────────────────────────────
-// (El CSS ya tiene scroll-behavior: smooth, pero esto agrega soporte extra)
+// ─── 7. SCROLL SUAVE ────────────────────────────────────────────────────────
 
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -313,7 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initHeaderScroll();
   initScrollReveal();
-  initCounters();
   initOpenClosedStatus();
   initLightbox();
   initWhatsAppLinks();

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   FERRETERÍA EL TORNILLO — styles.css
+   AT HERRAMIENTAS — styles.css
    Paleta: negro carbón, amarillo seguridad, blanco y grises
    Tipografías: Bebas Neue (títulos) + Inter (cuerpo)
    Mobile-first · CSS Custom Properties
@@ -306,7 +306,6 @@ button {
   position: absolute;
   inset: 0;
   background:
-    /* Patrón de engranajes / hexágonos sutiles */
     repeating-linear-gradient(
       60deg,
       transparent,
@@ -474,41 +473,7 @@ button {
 }
 
 /* ==========================================================================
-   3. CIFRAS / CONFIANZA
-   ========================================================================== */
-.stats {
-  background: var(--clr-dark);
-  padding: var(--space-xl) 0;
-}
-
-.stats__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-md);
-}
-
-.stats__item {
-  text-align: center;
-  padding: var(--space-md);
-}
-
-.stats__number {
-  font-family: var(--ff-heading);
-  font-size: 3rem;
-  color: var(--clr-accent);
-  line-height: 1;
-}
-
-.stats__label {
-  color: var(--clr-gray);
-  font-size: var(--fs-small);
-  margin-top: var(--space-xs);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* ==========================================================================
-   4. RUBROS / CATEGORÍAS
+   3. RUBROS / CATEGORÍAS
    ========================================================================== */
 .categories {
   padding: var(--space-xl) 0;
@@ -559,59 +524,140 @@ button {
 }
 
 /* ==========================================================================
-   5. SERVICIOS EXTRA
+   4. ENVÍOS / TE LO LLEVAMOS
    ========================================================================== */
-.services {
+.shipping {
   padding: var(--space-xl) 0;
   background: var(--clr-dark);
 }
 
-.services__grid {
+.shipping__intro {
+  text-align: center;
+  color: var(--clr-gray);
+  max-width: 550px;
+  margin: calc(-1 * var(--space-sm)) auto var(--space-lg);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.shipping__steps {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-md);
+  margin-bottom: var(--space-lg);
 }
 
-.service-card {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-sm);
+.step-card {
+  position: relative;
   background: var(--clr-dark-alt);
-  padding: var(--space-md);
   border-radius: var(--radius-lg);
-  border-left: 4px solid var(--clr-accent);
-  transition: transform var(--transition), box-shadow var(--transition);
+  padding: var(--space-md);
+  padding-top: calc(var(--space-md) + 10px);
+  text-align: center;
+  border: 1px solid rgba(255,196,0,0.1);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
-.service-card:hover {
-  transform: translateX(6px);
+.step-card:hover {
+  transform: translateY(-4px);
   box-shadow: var(--shadow);
+  border-color: rgba(255,196,0,0.3);
 }
 
-.service-card__icon {
-  flex-shrink: 0;
+.step-card__number {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  background: var(--clr-accent);
+  color: var(--clr-dark);
+  font-family: var(--ff-heading);
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(255,196,0,0.3);
+}
+
+.step-card__icon-wrap {
+  width: 48px;
+  height: 48px;
+  margin: var(--space-xs) auto var(--space-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-card__icon {
   width: 40px;
   height: 40px;
   fill: var(--clr-accent);
 }
 
-.service-card__title {
+.step-card__title {
   font-family: var(--ff-heading);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: var(--clr-white);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 4px;
 }
 
-.service-card__desc {
+.step-card__desc {
   font-size: var(--fs-small);
   color: var(--clr-gray);
-  line-height: 1.4;
+  line-height: 1.5;
+}
+
+/* Zona de cobertura */
+.shipping__coverage {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  background: rgba(255,196,0,0.08);
+  border: 1px solid rgba(255,196,0,0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.shipping__coverage-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.shipping__coverage-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--clr-accent);
+}
+
+.shipping__coverage-text {
+  color: var(--clr-gray);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+}
+
+.shipping__coverage-text strong {
+  color: var(--clr-accent);
+  display: block;
+  font-family: var(--ff-heading);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+.shipping__cta {
+  text-align: center;
 }
 
 /* ==========================================================================
-   6. POR QUÉ ELEGIRNOS
+   5. POR QUÉ ELEGIRNOS
    ========================================================================== */
 .why-us {
   padding: var(--space-xl) 0;
@@ -672,20 +718,29 @@ button {
 }
 
 /* ==========================================================================
-   7. GALERÍA
+   6. GALERÍA DE PRODUCTOS
    ========================================================================== */
-.gallery {
+.products {
   padding: var(--space-xl) 0;
   background: var(--clr-white);
 }
 
-.gallery__grid {
+.products__subtitle {
+  text-align: center;
+  color: var(--clr-gray-dark);
+  max-width: 550px;
+  margin: calc(-1 * var(--space-sm)) auto var(--space-lg);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.products__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-xs);
 }
 
-.gallery__item {
+.products__item {
   position: relative;
   aspect-ratio: 1 / 1;
   border-radius: var(--radius);
@@ -693,51 +748,55 @@ button {
   cursor: pointer;
 }
 
-.gallery__img {
+/* Item destacado: ocupa 2 columnas */
+.products__item--featured {
+  grid-column: span 2;
+  aspect-ratio: 16 / 9;
+}
+
+.products__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform var(--transition);
 }
 
-.gallery__item:hover .gallery__img {
+.products__item:hover .products__img {
   transform: scale(1.08);
 }
 
-.gallery__item::after {
+/* Overlay gradiente */
+.products__item::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(26,26,26,0.5) 0%, transparent 50%);
-  opacity: 0;
+  background: linear-gradient(to top, rgba(26,26,26,0.75) 0%, rgba(26,26,26,0.1) 50%, transparent 100%);
   transition: opacity var(--transition);
 }
 
-.gallery__item:hover::after {
-  opacity: 1;
+/* Etiqueta de categoría */
+.products__label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-sm);
+  font-family: var(--ff-heading);
+  font-size: 1.2rem;
+  color: var(--clr-white);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 1;
+  transition: color var(--transition);
 }
 
-/* Placeholder para imágenes de galería */
-.gallery__placeholder {
-  width: 100%;
-  height: 100%;
-  background: var(--clr-dark-alt);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-xs);
-  color: var(--clr-gray);
-  font-size: var(--fs-small);
+.products__item:hover .products__label {
+  color: var(--clr-accent);
 }
 
-.gallery__placeholder svg {
-  width: 40px;
-  height: 40px;
-  fill: var(--clr-gray);
-}
-
-/* Lightbox */
+/* ==========================================================================
+   LIGHTBOX
+   ========================================================================== */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -807,67 +866,7 @@ button {
 .lightbox__nav--next { right: var(--space-sm); }
 
 /* ==========================================================================
-   8. TESTIMONIOS
-   ========================================================================== */
-.testimonials {
-  padding: var(--space-xl) 0;
-  background: var(--clr-dark);
-}
-
-.testimonials__grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-md);
-}
-
-.testimonial-card {
-  background: var(--clr-dark-alt);
-  border-radius: var(--radius-lg);
-  padding: var(--space-md);
-  position: relative;
-  border-top: 3px solid var(--clr-accent);
-}
-
-.testimonial-card__quote {
-  font-size: var(--fs-body);
-  color: var(--clr-gray);
-  line-height: 1.6;
-  margin-bottom: var(--space-sm);
-  font-style: italic;
-}
-
-.testimonial-card__quote::before {
-  content: '❝';
-  display: block;
-  font-size: 2rem;
-  color: var(--clr-accent);
-  font-style: normal;
-  line-height: 1;
-  margin-bottom: var(--space-xs);
-}
-
-.testimonial-card__author {
-  font-family: var(--ff-heading);
-  font-size: 1.1rem;
-  color: var(--clr-white);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.testimonial-card__role {
-  font-size: var(--fs-small);
-  color: var(--clr-gray-dark);
-}
-
-.testimonial-card__stars {
-  color: var(--clr-accent);
-  font-size: 1rem;
-  margin-top: var(--space-xs);
-  letter-spacing: 2px;
-}
-
-/* ==========================================================================
-   9. HORARIOS Y UBICACIÓN
+   7. HORARIOS Y ZONA
    ========================================================================== */
 .location {
   padding: var(--space-xl) 0;
@@ -898,7 +897,7 @@ button {
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .schedule__status--open {
@@ -929,6 +928,13 @@ button {
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
+}
+
+.schedule__note {
+  font-size: var(--fs-small);
+  color: var(--clr-gray-dark);
+  margin-bottom: var(--space-sm);
+  line-height: 1.4;
 }
 
 .schedule__table {
@@ -979,7 +985,7 @@ button {
 }
 
 /* ==========================================================================
-   10. CONTACTO
+   8. CONTACTO
    ========================================================================== */
 .contact {
   padding: var(--space-xl) 0;
@@ -1045,7 +1051,7 @@ button {
 }
 
 /* ==========================================================================
-   11. FOOTER
+   9. FOOTER
    ========================================================================== */
 .footer {
   background: #111111;
@@ -1117,32 +1123,28 @@ button {
     justify-content: center;
   }
 
-  .stats__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
   .categories__grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .services__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .shipping__steps {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .why-us__grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .gallery__grid {
+  .products__grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .testimonials__grid {
-    grid-template-columns: repeat(3, 1fr);
+  .products__item--featured {
+    grid-column: span 2;
   }
 
   .contact__grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1211,17 +1213,13 @@ button {
     min-height: 380px;
   }
 
-  .contact__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .gallery__grid {
-    grid-template-columns: repeat(3, 1fr);
+  /* Productos: items destacados más impacto */
+  .products__grid {
     gap: var(--space-sm);
   }
 
-  /* Stats números más grandes */
-  .stats__number {
-    font-size: 4rem;
+  .products__label {
+    font-size: 1.4rem;
+    padding: var(--space-md);
   }
 }
