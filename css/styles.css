@@ -22,6 +22,7 @@
 
   /* Tipografía */
   --ff-heading:  'Bebas Neue', 'Impact', sans-serif;
+  --ff-serif:    'Playfair Display', Georgia, 'Times New Roman', serif;
   --ff-body:     'Inter', 'Segoe UI', system-ui, sans-serif;
 
   /* Tamaños base (mobile-first) */
@@ -176,24 +177,38 @@ button {
 
 /* Logo */
 .header__logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: var(--space-xs);
-  font-family: var(--ff-heading);
-  font-size: 1.5rem;
-  color: var(--clr-white);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  gap: 10px;
+  text-decoration: none;
   z-index: 1001;
+  transition: transform var(--transition);
 }
 
-.header__logo-icon {
-  width: 36px;
-  height: 36px;
-  fill: var(--clr-accent);
+.header__logo:hover {
+  transform: scale(1.04);
 }
 
-.header__logo span {
+.header__logo-tool {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.45));
+  user-select: none;
+}
+
+.header__logo-text {
+  font-family: var(--ff-serif);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--clr-white);
+  letter-spacing: 2px;
+  line-height: 1;
+  transition: color var(--transition);
+}
+
+.header__logo:hover .header__logo-text {
   color: var(--clr-accent);
 }
 
@@ -375,18 +390,48 @@ button {
 }
 
 .hero__title {
-  font-family: var(--ff-heading);
-  font-size: var(--fs-hero);
-  color: var(--clr-white);
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  line-height: 1.1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: var(--space-xs);
+  line-height: 1;
 }
 
-.hero__title span {
+.hero__brand-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 3vw, 32px);
+}
+
+.hero__brand-tool {
+  width: clamp(60px, 12vw, 130px);
+  height: clamp(60px, 12vw, 130px);
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.6));
+  user-select: none;
+}
+
+.hero__brand-at {
+  font-family: var(--ff-serif);
+  font-size: clamp(4.5rem, 13vw, 9rem);
+  font-weight: 900;
+  color: var(--clr-white);
+  letter-spacing: 2px;
+  line-height: 0.9;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+
+.hero__brand-sub {
+  font-family: var(--ff-serif);
+  font-size: clamp(2.4rem, 7vw, 5.2rem);
+  font-weight: 900;
   color: var(--clr-accent);
-  display: block;
+  line-height: 1.1;
+  margin-top: clamp(6px, 1.5vw, 16px);
+  text-shadow: 0 4px 24px rgba(0,0,0,0.6);
+  letter-spacing: 1.5px;
 }
 
 .hero__subtitle {
@@ -737,12 +782,12 @@ button {
 .products__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-xs);
+  gap: var(--space-sm);
 }
 
 .products__item {
   position: relative;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
   border-radius: var(--radius);
   overflow: hidden;
   cursor: pointer;
@@ -782,10 +827,12 @@ button {
   right: 0;
   padding: var(--space-sm);
   font-family: var(--ff-heading);
-  font-size: 1.2rem;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.2;
+  word-break: break-word;
   color: var(--clr-white);
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   z-index: 1;
   transition: color var(--transition);
 }
@@ -1136,11 +1183,8 @@ button {
   }
 
   .products__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .products__item--featured {
-    grid-column: span 2;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
   }
 
   .contact__grid {
@@ -1213,9 +1257,9 @@ button {
     min-height: 380px;
   }
 
-  /* Productos: items destacados más impacto */
+  /* Productos: 3 filas y 2 columnas */
   .products__grid {
-    gap: var(--space-sm);
+    gap: var(--space-md);
   }
 
   .products__label {

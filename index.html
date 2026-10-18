@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO Local -->
-  <title>AT Herramientas | Herramientas, Electricidad, Plomería y más — Envíos a Zona Norte</title>
-  <meta name="description" content="AT Herramientas — herramientas manuales y eléctricas, plomería, electricidad, tornillería, electrodomésticos y más. Envíos a Don Torcuato, Zona Norte y alrededores. Pedí por WhatsApp.">
+  <title>AT Herramientas | Herramientas, Sanitarios, Jardín y más — Envíos a Zona Norte</title>
+  <meta name="description" content="AT Herramientas — herramientas manuales y eléctricas, sanitarios, jardín, auto, bici, moto, electrodomésticos y más. Envíos a Don Torcuato, Zona Norte y alrededores. Pedí por WhatsApp.">
 
   <!-- Open Graph (WhatsApp, redes) -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="AT Herramientas — Lo que necesitás, donde lo necesitás">
-  <meta property="og:description" content="Herramientas, electricidad, plomería, electrodomésticos y más. Envíos a Zona Norte y alrededores. Pedí por WhatsApp.">
+  <meta property="og:description" content="Herramientas, sanitarios, jardín, auto, moto, electrodomésticos y más. Envíos a Zona Norte y alrededores. Pedí por WhatsApp.">
   <!-- REEMPLAZAR: Imagen real del negocio o logo (1200×630 px recomendado) -->
   <meta property="og:image" content="img/og-image.jpg">
   <meta property="og:url" content="https://www.atherramientas.com.ar">
@@ -24,7 +24,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
 
   <!-- Estilos -->
   <link rel="stylesheet" href="css/styles.css">
@@ -35,7 +35,7 @@
     "@context": "https://schema.org",
     "@type": "HardwareStore",
     "name": "AT Herramientas",
-    "description": "Herramientas manuales y eléctricas, plomería, electricidad, tornillería, electrodomésticos, jardín y más. Envíos a domicilio en Zona Norte y alrededores.",
+    "description": "Herramientas manuales y eléctricas, sanitarios, jardín, auto, bici, moto, electrodomésticos y más. Envíos a domicilio en Zona Norte y alrededores.",
     "url": "https://www.atherramientas.com.ar",
     "telephone": "+5491122830029",
     "address": {
@@ -83,11 +83,11 @@
       "itemListElement": [
         { "@type": "OfferCatalog", "name": "Herramientas Manuales" },
         { "@type": "OfferCatalog", "name": "Herramientas Eléctricas" },
-        { "@type": "OfferCatalog", "name": "Plomería" },
-        { "@type": "OfferCatalog", "name": "Electricidad" },
-        { "@type": "OfferCatalog", "name": "Tornillería" },
+        { "@type": "OfferCatalog", "name": "Sanitarios" },
         { "@type": "OfferCatalog", "name": "Jardín" },
-        { "@type": "OfferCatalog", "name": "Electrodomésticos" }
+        { "@type": "OfferCatalog", "name": "Auto, Bici y Moto" },
+        { "@type": "OfferCatalog", "name": "Electrodomésticos" },
+        { "@type": "OfferCatalog", "name": "Varios" }
       ]
     }
   }
@@ -103,12 +103,10 @@
     <div class="container header__inner">
 
       <!-- Logo -->
-      <a href="#top" class="header__logo" aria-label="Ir al inicio">
-        <!-- Ícono de herramienta SVG -->
-        <svg class="header__logo-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
-        </svg>
-        AT <span>Herramientas</span>
+      <a href="#top" class="header__logo" aria-label="Ir al inicio — AT">
+        <img class="header__logo-tool" src="img/tools_left.png" alt="" aria-hidden="true">
+        <span class="header__logo-text">AT</span>
+        <img class="header__logo-tool" src="img/tools_right.png" alt="" aria-hidden="true">
       </a>
 
       <!-- Navegación -->
@@ -149,12 +147,16 @@
         <span class="hero__badge">Herramientas y más · Envíos a domicilio</span>
 
         <h1 class="hero__title">
-          AT
-          <span>Herramientas</span>
+          <span class="hero__brand-top">
+            <img class="hero__brand-tool hero__brand-tool--left" src="img/tools_left.png" alt="" aria-hidden="true">
+            <span class="hero__brand-at">AT</span>
+            <img class="hero__brand-tool hero__brand-tool--right" src="img/tools_right.png" alt="" aria-hidden="true">
+          </span>
+          <span class="hero__brand-sub">Herramientas</span>
         </h1>
 
         <p class="hero__subtitle">
-          Lo que necesitás, donde lo necesitás. Herramientas, electricidad, plomería, electrodomésticos y más — pedí por WhatsApp y te lo llevamos a tu puerta.
+          Lo que necesitás, donde lo necesitás. Herramientas, sanitarios, jardín, electrodomésticos y más — pedí por WhatsApp y te lo llevamos a tu puerta.
         </p>
 
         <div class="hero__cta">
@@ -163,7 +165,7 @@
             Pedí por WhatsApp
           </a>
 
-          <a href="#rubros" class="btn btn--outline" aria-label="Ver rubros">
+          <a href="#productos" class="btn btn--outline" aria-label="ver productos">
             <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
             Ver productos
           </a>
@@ -201,31 +203,13 @@
             <p class="category-card__desc">Taladros, amoladoras, sierras y lijadoras. Potencia para cada trabajo.</p>
           </div>
 
-          <!-- Plomería -->
+          <!-- Sanitarios -->
           <div class="category-card reveal">
             <svg class="category-card__icon" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M19.28 4.93l-2.12-2.12c-.78-.78-2.05-.78-2.83 0L11.5 5.64l2.12 2.12 2.12-2.12 3.54 3.54a3 3 0 010 4.24l-3.54-3.54-2.12 2.12 3.54 3.54a3 3 0 01-4.24 0L9.38 12l-2.12 2.12 3.54 3.54c2.34 2.34 6.14 2.34 8.49 0 2.34-2.34 2.34-6.14-.01-8.49z M.56 17.97l4.95-4.95 2.12 2.12-4.95 4.95c-.59.59-1.54.59-2.12 0-.59-.58-.59-1.53 0-2.12z"/>
             </svg>
-            <h3 class="category-card__title">Plomería</h3>
-            <p class="category-card__desc">Caños, conexiones, griferías, válvulas y todo para instalaciones sanitarias.</p>
-          </div>
-
-          <!-- Electricidad -->
-          <div class="category-card reveal">
-            <svg class="category-card__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L10 14v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-            </svg>
-            <h3 class="category-card__title">Electricidad</h3>
-            <p class="category-card__desc">Cables, llaves, térmicas, tubos, cajas y todo el material eléctrico que necesitás.</p>
-          </div>
-
-          <!-- Tornillería -->
-          <div class="category-card reveal">
-            <svg class="category-card__icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v2zm0-4H9V7h2v5zm4 4h-2v-2h2v2zm0-4h-2V7h2v5z"/>
-            </svg>
-            <h3 class="category-card__title">Tornillería</h3>
-            <p class="category-card__desc">Tornillos, tuercas, bulones, tarugos, clavos y fijaciones de todo tipo y medida.</p>
+            <h3 class="category-card__title">Sanitarios</h3>
+            <p class="category-card__desc">Canillas, duchas, vástagos, rejillas, repuestos y todo para el baño y conexiones de agua.</p>
           </div>
 
           <!-- Jardín -->
@@ -235,6 +219,15 @@
             </svg>
             <h3 class="category-card__title">Jardín</h3>
             <p class="category-card__desc">Mangueras, riego, herramientas de poda, macetas y todo para tu espacio verde.</p>
+          </div>
+
+          <!-- Auto, Bici y Moto -->
+          <div class="category-card reveal">
+            <svg class="category-card__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+            </svg>
+            <h3 class="category-card__title">Auto, Bici y Moto</h3>
+            <p class="category-card__desc">Accesorios, lubricantes, infladores, parches, cadenas y mantenimiento para vehículos y rodados.</p>
           </div>
 
           <!-- Electrodomésticos -->
@@ -377,7 +370,7 @@
             </div>
             <div>
               <h3 class="why-us__title">Amplia Variedad</h3>
-              <p class="why-us__desc">Herramientas, electricidad, plomería, electrodomésticos, jardín y mucho más. Si no lo tenemos, te lo conseguimos.</p>
+              <p class="why-us__desc">Herramientas, sanitarios, jardín, auto, bici, moto, electrodomésticos y mucho más. Si no lo tenemos, te lo conseguimos.</p>
             </div>
           </div>
 
@@ -390,58 +383,44 @@
          ================================================================ -->
     <section class="products" id="productos">
       <div class="container">
-        <h2 class="section-title">Variedad Que Sorprende</h2>
-        <p class="products__subtitle">Estos son solo algunos de los productos que manejamos. ¿No lo ves? Preguntanos — seguro lo tenemos o te lo conseguimos.</p>
+        <h2 class="section-title">Nuestros Productos</h2>
+        <p class="products__subtitle">Las imágenes son una muestra ilustrativa de los productos que comercializamos. Si ves lo que estás buscando o necesitás algo similar, escribinos por WhatsApp consultando por el producto y te confirmamos disponibilidad y precio al momento.</p>
 
         <div class="products__grid">
 
-          <!--
-            REEMPLAZAR: Cada imagen con fotos reales de los productos.
-            Sugerencias de archivos:
-            - img/productos-herramientas.jpg   → Foto de herramientas manuales
-            - img/productos-electricas.jpg     → Taladros, amoladoras, etc.
-            - img/productos-plomeria.jpg       → Caños, conexiones, griferías
-            - img/productos-electricidad.jpg   → Cables, térmicas, material eléctrico
-            - img/productos-electrodomesticos.jpg → Ventiladores, estufas, etc.
-            - img/productos-jardin.jpg         → Riego, herramientas de jardín
-            - img/productos-tornilleria.jpg    → Tornillos, fijaciones
-            - img/productos-varios.jpg         → Productos variados
-          -->
-
-          <!-- Imagen destacada (ocupa 2 columnas en desktop) -->
-          <div class="products__item products__item--featured gallery__item reveal">
-            <img class="products__img" src="https://placehold.co/800x500/1a1a1a/ffc400?text=Herramientas" alt="Variedad de herramientas manuales y eléctricas" loading="lazy">
+          <!-- Herramientas -->
+          <div class="products__item gallery__item reveal">
+            <img class="products__img" src="img/collage_herramientas.png" alt="Herramientas manuales y eléctricas" loading="lazy">
             <span class="products__label">Herramientas</span>
           </div>
 
+          <!-- Sanitarios -->
           <div class="products__item gallery__item reveal">
-            <img class="products__img" src="https://placehold.co/500x500/232323/ffc400?text=Plomería" alt="Productos de plomería y sanitarios" loading="lazy">
-            <span class="products__label">Plomería</span>
+            <img class="products__img" src="img/collage_sanitarios.png" alt="Sanitarios, griferías y conexiones" loading="lazy">
+            <span class="products__label">Sanitarios</span>
           </div>
 
+          <!-- Jardín -->
           <div class="products__item gallery__item reveal">
-            <img class="products__img" src="https://placehold.co/500x500/2a2a2a/ffc400?text=Electricidad" alt="Material eléctrico: cables, térmicas y más" loading="lazy">
-            <span class="products__label">Electricidad</span>
-          </div>
-
-          <div class="products__item gallery__item reveal">
-            <img class="products__img" src="https://placehold.co/500x500/333333/ffc400?text=Electrodomésticos" alt="Electrodomésticos para el hogar" loading="lazy">
-            <span class="products__label">Electrodomésticos</span>
-          </div>
-
-          <!-- Imagen destacada (ocupa 2 columnas en desktop) -->
-          <div class="products__item products__item--featured gallery__item reveal">
-            <img class="products__img" src="https://placehold.co/800x500/292929/ffc400?text=Tornillería+y+Fijaciones" alt="Tornillería y fijaciones de todo tipo" loading="lazy">
-            <span class="products__label">Tornillería y Fijaciones</span>
-          </div>
-
-          <div class="products__item gallery__item reveal">
-            <img class="products__img" src="https://placehold.co/500x500/1f1f1f/ffc400?text=Jardín" alt="Productos de jardín y riego" loading="lazy">
+            <img class="products__img" src="img/collage_jardin.png" alt="Productos de jardín y riego" loading="lazy">
             <span class="products__label">Jardín</span>
           </div>
 
+          <!-- Auto, Bici y Moto -->
           <div class="products__item gallery__item reveal">
-            <img class="products__img" src="https://placehold.co/500x500/2d2d2d/ffc400?text=Varios" alt="Cintas, adhesivos, pilas, candados y más" loading="lazy">
+            <img class="products__img" src="img/collage_auto_bici_moto.png" alt="Accesorios para auto, bici y moto" loading="lazy">
+            <span class="products__label">Auto, Bici y Moto</span>
+          </div>
+
+          <!-- Electrodomésticos -->
+          <div class="products__item gallery__item reveal">
+            <img class="products__img" src="img/collage_electrodomesticos.png" alt="Electrodomésticos para el hogar" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/1920x1080/232323/ffc400?text=Electrodom%C3%A9sticos';">
+            <span class="products__label">Electrodomésticos</span>
+          </div>
+
+          <!-- Varios -->
+          <div class="products__item gallery__item reveal">
+            <img class="products__img" src="img/collage_varios.png" alt="Cintas, adhesivos, pilas, candados y más" loading="lazy">
             <span class="products__label">Varios</span>
           </div>
 
@@ -578,7 +557,7 @@
   <footer class="footer">
     <div class="container">
       <p class="footer__text">
-        © 2025 <a href="#top">AT Herramientas</a> — Zona Norte, Buenos Aires. Todos los derechos reservados.
+        © 2016 <a href="#top">AT Herramientas</a> — Zona Norte, Buenos Aires. Todos los derechos reservados.
       </p>
     </div>
   </footer>
